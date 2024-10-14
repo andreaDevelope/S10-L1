@@ -7,5 +7,5 @@ import { iPosts } from '../../modules/i-posts';
   styleUrl: './single-post.component.scss',
 })
 export class SinglePostComponent {
-  @Input() singlePostArr: iPosts[] = [];
+  @Input() post!: iPosts;
 }

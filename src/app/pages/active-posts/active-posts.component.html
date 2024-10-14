@@ -1,21 +1,7 @@
 <div class=".container mt-3">
   <div class="row">
     <div class="col" *ngFor="let actPost of activePost">
-      <div class="card">
-        <h2 class="card-body">{{ actPost.title }}</h2>
-
-        <ul class="">
-          <li class="list-group-item" *ngFor="let actTag of actPost.tags">
-            {{ actTag }}
-          </li>
-          <button
-            class="ms-3 p-1 btn btn-info"
-            [routerLink]="['/posts-details', actPost.id]"
-          >
-            DETTAGLI
-          </button>
-        </ul>
-      </div>
+      <app-single-post [post]="actPost"></app-single-post>
     </div>
   </div>
 </div>

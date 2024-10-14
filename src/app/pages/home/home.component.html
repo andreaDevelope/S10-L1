@@ -1,18 +1,7 @@
-<div class="card px-3 mt-3 text-center" *ngIf="featuredPost">
-  <div class="card px-3">
-    <h2 class="card-body">{{ featuredPost.title }}</h2>
-    <ul>
-      <li class="list-group-item" *ngFor="let tag of featuredPost.tags">
-        {{ tag }}
-      </li>
-    </ul>
-    <div class="ps-4">
-      <button
-        class="p-1 btn btn-info my-2 mx-auto"
-        [routerLink]="['posts-details', featuredPost.id]"
-      >
-        DETTAGLI
-      </button>
+<div class="conteiner">
+  <div class="row">
+    <div class="col text-center">
+      <app-single-post [post]="featuredPost"></app-single-post>
     </div>
   </div>
 </div>
@@ -20,24 +9,41 @@
 <div class="container mt-3 text-center">
   <div class="row">
     <div class="col" *ngFor="let post of postsArr">
-      <div class="card">
-        <h2 class="card-body">{{ post.title }}</h2>
-
-        <ul class="">
-          <li class="list-group-item" *ngFor="let tag of post.tags">
-            {{ tag }}
-          </li>
-          <button
-            class="p-1 btn btn-info"
-            [routerLink]="['posts-details', post.id]"
-          >
-            DETTAGLI
-          </button>
-        </ul>
-      </div>
+      <app-single-post [post]="post"></app-single-post>
     </div>
   </div>
 </div>
 
-<h2 class="text-center my-5">Area Single Post</h2>
-<app-single-post [singlePostArr]="posts"></app-single-post>
+<div class="container mt-3 text-center">
+  <h2 class="text-center my-5">TUTTI I POST</h2>
+  <div class="row">
+    <div class="col" *ngFor="let post of posts">
+      <app-single-post [post]="post">
+        <form>
+          <label for="post-title-{{ post.id }}">Title:</label>
+          <input
+            type="text"
+            [(ngModel)]="post.title"
+            name="title"
+            id="post-title-{{ post.id }}"
+          />
+
+          <label for="post-body-{{ post.id }}">Body:</label>
+          <textarea
+            [(ngModel)]="post.body"
+            name="body"
+            id="post-body-{{ post.id }}"
+          ></textarea>
+
+          <label for="post-active-check-box-{{ post.id }}">Active</label>
+          <input
+            [(ngModel)]="post.active"
+            type="checkbox"
+            name="active"
+            id="post-active-check-box-{{ post.id }}"
+          />
+        </form>
+      </app-single-post>
+    </div>
+  </div>
+</div>
