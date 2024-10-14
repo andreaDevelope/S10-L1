@@ -8,9 +8,10 @@ import { InactivePostsComponent } from './pages/inactive-posts/inactive-posts.co
 import { HomeComponent } from './pages/home/home.component';
 import { PostsDetailsComponent } from './pages/posts-details/posts-details.component';
 import { NavBarComponent } from './main-components/nav-bar/nav-bar.component';
+import { SinglePostComponent } from './children-home-component/single-post/single-post.component';
 
 @NgModule({
-  declarations: [AppComponent, ActivePostsComponent, InactivePostsComponent, HomeComponent, PostsDetailsComponent, NavBarComponent],
+  declarations: [AppComponent, ActivePostsComponent, InactivePostsComponent, HomeComponent, PostsDetailsComponent, NavBarComponent, SinglePostComponent],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],

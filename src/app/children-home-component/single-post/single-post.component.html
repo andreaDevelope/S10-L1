@@ -1,0 +1,21 @@
+<div class="container mt-3 text-center">
+  <div class="row">
+    <div class="col" *ngFor="let post of singlePostArr">
+      <div class="card">
+        <h2 class="card-body">{{ post.title }}</h2>
+
+        <ul class="">
+          <li class="list-group-item" *ngFor="let tag of post.tags">
+            {{ tag }}
+          </li>
+          <button
+            class="p-1 btn btn-info"
+            [routerLink]="['posts-details', post.id]"
+          >
+            DETTAGLI
+          </button>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
